@@ -8,6 +8,28 @@
 </head>
 
 <body>
+
+  <section class="reviews">
+  <h2>Ressenyes</h2>
+
+  <form id="reviewForm" class="review-form">
+    <input type="text" id="name" placeholder="El teu nom" required>
+
+    <div class="stars" id="stars">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+
+    <input type="hidden" id="rating" value="0">
+    <button type="submit">Enviar ressenya</button>
+  </form>
+
+  <div id="reviewsList"></div>
+</section>
+
   <main class="wrap">
 
     <header class="top">
