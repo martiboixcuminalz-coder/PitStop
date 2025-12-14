@@ -13,4 +13,3 @@ document.addEventListener("DOMContentLoaded", () => {
     slides.style.transform = `translateX(-${index * 100}%)`;
   }, 5000);
 });
-
