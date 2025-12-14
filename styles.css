@@ -178,3 +178,21 @@ body{
 .review strong{
   display:block;
 }
+.order-btn{
+  position:fixed;
+  top:16px;
+  right:16px;
+  padding:12px 18px;
+  background:#1D5C63;
+  color:#000;
+  font-weight:900;
+  font-size:18px;
+  border-radius:14px;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  z-index:1000;
+}
+
+.order-btn:hover{
+  transform:translateY(-2px);
+}
