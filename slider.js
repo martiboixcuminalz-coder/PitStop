@@ -6,27 +6,41 @@ document.addEventListener("DOMContentLoaded", () => {
   let i = 0;
 
   const intervalMs = 5000;
-  const t = 550; // ha de coincidir amb el CSS (0.55s)
+  const t = 550; // = 0.55s del CSS
 
-  img.src = frames[i]; // comença pel logo
+  // Estat inicial
+  img.classList.remove("out", "in");
+  img.src = frames[i];
 
-  setInterval(() => {
-    // 1) surt (logo/foto actual desapareix)
+  // Fallback si una imatge no carrega
+  img.addEventListener("error", () => {
+    img.src = "logo.jpg";
+  });
+
+  const step = () => {
+    // surt
     img.classList.add("out");
 
-    // 2) quan ha sortit, canviem src i fem entrar des de la dreta
     setTimeout(() => {
+      // següent frame
       i = (i + 1) % frames.length;
 
+      // prepara entrada des de dreta
       img.classList.remove("out");
       img.classList.add("in");
       img.src = frames[i];
 
-      // força reflow perquè "in" s’apliqui abans d’entrar
+      // força reflow
       void img.offsetWidth;
 
-      // 3) entra
+      // entra
       img.classList.remove("in");
+
+      // programa següent canvi (5s)
+      setTimeout(step, intervalMs);
     }, t);
-  }, intervalMs);
+  };
+
+  // primer canvi al cap de 5s
+  setTimeout(step, intervalMs);
 });
