@@ -120,3 +120,61 @@ body{
   .title{font-size:48px}
   .billboard{height:260px}
 }
+.reviews{
+  max-width:600px;
+  margin:40px auto;
+  padding:20px;
+  background:rgba(255,255,255,.7);
+  border-radius:20px;
+}
+
+.reviews h2{
+  text-align:center;
+  margin-bottom:16px;
+}
+
+.review-form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.review-form input,
+.review-form button{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+.review-form button{
+  background:#1D5C63;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.stars{
+  display:flex;
+  gap:6px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.stars span{
+  color:#ccc;
+}
+
+.stars span.active{
+  color:#1D5C63;
+}
+
+.review{
+  margin-top:14px;
+  padding:10px;
+  border-bottom:1px solid #ccc;
+}
+
+.review strong{
+  display:block;
+}
