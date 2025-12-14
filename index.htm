@@ -8,30 +8,10 @@
 </head>
 
 <body>
-<a href="comanda.html" class="order-btn">DEMANA JA!</a>
-  
-  <h2>Ressenyes</h2>
-
-  <form id="reviewForm" class="review-form">
-    <input type="text" id="name" placeholder="El teu nom" required>
-
-    <div class="stars" id="stars">
-      <span data-value="1">★</span>
-      <span data-value="2">★</span>
-      <span data-value="3">★</span>
-      <span data-value="4">★</span>
-      <span data-value="5">★</span>
-    </div>
-
-    <input type="hidden" id="rating" value="0">
-    <button type="submit">Enviar ressenya</button>
-  </form>
-
-  <div id="reviewsList"></div>
-</section>
+  <!-- Botó a dalt a la dreta -->
+  <a href="comanda.html" class="order-btn">DEMANA JA!</a>
 
   <main class="wrap">
-
     <header class="top">
       <h1 class="title">PITSTOP</h1>
 
@@ -41,31 +21,47 @@
     </header>
 
     <section class="grid">
-      <div class="card placeholder">Burger 1</div>
+      <a class="card placeholder buy" href="https://wa.me/376000000?text=Hola%20PitStop%2C%20vull%201%20Burger%201%2E" target="_blank" rel="noopener">Burger 1</a>
       <div class="card placeholder">Burger 2</div>
       <div class="card placeholder">Burger 3</div>
       <div class="card placeholder">Burger 4</div>
     </section>
 
+    <section class="location">
+      <h2>On som</h2>
 
-<section class="location">
-  <h2>On som</h2>
+      <!-- CANVIA AQUESTA URL pel teu enllaç real de Google Maps -->
+      <a href="MAPS_URL_AQUI" target="_blank" rel="noopener">
+        <!-- Si vols imatge real de la botiga, puja una foto i posa src="botiga.jpg" -->
+        <img src="botiga-mapa.jpg" alt="Ubicació PitStop">
+      </a>
 
-  <a href="https://maps.app.goo.gl/nsm7BpCrUozef5PW6t"="_blank" rel="noopener">
-    <img
-      src="https://maps.googleapis.com/maps/api/staticmap?center=Andorra&zoom=15&size=640x360&maptype=roadmap&markers=color:green|Andorra"
-      alt="Ubicació PitStop a Google Maps"
-    >
-  </a>
+      <p>Toca el mapa per obrir Google Maps</p>
+    </section>
 
-  <p>Toca el mapa per obrir Google Maps</p>
-</section>
+    <!-- RESSENYES: SEMPRE AL FINAL -->
+    <section class="reviews">
+      <h2>Ressenyes</h2>
 
-    
-<section class="reviews">
+      <form id="reviewForm" class="review-form">
+        <input type="text" id="name" placeholder="El teu nom" required>
+
+        <div class="stars" id="stars">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+
+        <input type="hidden" id="rating" value="0">
+        <button type="submit">Enviar ressenya</button>
+      </form>
+
+      <div id="reviewsList"></div>
+    </section>
   </main>
 
-  <!-- IMPORTANT: el JS sempre al final del body -->
   <script src="slider.js"></script>
 </body>
 </html>
