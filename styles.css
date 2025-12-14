@@ -58,4 +58,13 @@ body{
 }
 @media (max-width: 520px){
   .grid{grid-template-columns:1fr}
+
+.title{
+  margin:0 0 12px 0;
+  font-size:56px;
+  font-weight:900;
+  letter-spacing:4px;
+  color:#1D5C63; /* verd del logo */
+  text-align:center;
 }
+
