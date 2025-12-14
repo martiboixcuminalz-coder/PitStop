@@ -1,33 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".slides");
-  if (!track) return;
+  const img = document.getElementById("billboardImg");
+  if (!img) return;
 
-  const slides = Array.from(track.children);
-  const firstClone = slides[0].cloneNode(true);
-  track.appendChild(firstClone);
+  const frames = ["logo.jpg", "foto1.jpg", "foto2.jpg", "foto3.jpg"];
+  let i = 0;
 
-  const total = track.children.length; // originals + clon
-  let index = 0;
   const intervalMs = 5000;
+  const t = 550; // ha de coincidir amb el CSS (0.55s)
 
-  // Estat inicial: logo
-  track.style.transform = "translateX(0%)";
-
-  const goTo = (i, withTransition = true) => {
-    track.style.transition = withTransition ? "transform .8s ease-in-out" : "none";
-    track.style.transform = `translateX(-${i * 100}%)`;
-  };
+  img.src = frames[i]; // comença pel logo
 
   setInterval(() => {
-    index += 1;
-    goTo(index, true);
+    // 1) surt (logo/foto actual desapareix)
+    img.classList.add("out");
 
-    // Si hem arribat al clon (últim), quan acabi la transició tornem al 0 sense transició
-    if (index === total - 1) {
-      setTimeout(() => {
-        index = 0;
-        goTo(index, false);
-      }, 820); // lleugerament més que 0.8s
-    }
+    // 2) quan ha sortit, canviem src i fem entrar des de la dreta
+    setTimeout(() => {
+      i = (i + 1) % frames.length;
+
+      img.classList.remove("out");
+      img.classList.add("in");
+      img.src = frames[i];
+
+      // força reflow perquè "in" s’apliqui abans d’entrar
+      void img.offsetWidth;
+
+      // 3) entra
+      img.classList.remove("in");
+    }, t);
   }, intervalMs);
 });
