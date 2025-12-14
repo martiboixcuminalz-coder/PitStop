@@ -43,4 +43,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // primer canvi al cap de 5s
   setTimeout(step, intervalMs);
+})
+  const form = document.getElementById("reviewForm");
+const reviewsList = document.getElementById("reviewsList");
+const stars = document.querySelectorAll(".stars span");
+const ratingInput = document.getElementById("rating");
+
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+// pintar estrelles
+stars.forEach(star => {
+  star.addEventListener("click", () => {
+    const value = star.dataset.value;
+    ratingInput.value = value;
+
+    stars.forEach(s => {
+      s.classList.toggle("active", s.dataset.value <= value);
+    });
+  });
 });
+
+// enviar ressenya
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const rating = ratingInput.value;
+
+  if (!rating) return alert("Selecciona estrelles");
+
+  const review = { name, rating };
+  reviews.push(review);
+
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+  form.reset();
+  ratingInput.value = 0;
+  stars.forEach(s => s.classList.remove("active"));
+
+  renderReviews();
+});
+
+// mostrar ressenyes
+function renderReviews(){
+  reviewsList.innerHTML = "";
+  reviews.forEach(r => {
+    const div = document.createElement("div");
+    div.className = "review";
+    div.innerHTML = `
+      <strong>${r.name}</strong>
+      ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
+    `;
+    reviewsList.appendChild(div);
+  });
+}
+
+renderReviews();
+
+  
+  ;
