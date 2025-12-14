@@ -52,8 +52,8 @@ body{
 
 /* Cartell central (slider amb 1 sola imatge) */
 .billboard{
-  width:min(400px, 86vw);   /* una mica més petit que 420 */
-  height:250px;            /* lleugerament més baix per proporció */
+  width:min(380px, 86vw);   /* una mica més petit que 420 */
+  height:240px;            /* lleugerament més baix per proporció */
   margin:0 auto 20px auto;
   border-radius:20px;
   border:4px solid rgba(0,0,0,.2);
