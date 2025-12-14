@@ -11,7 +11,6 @@ body{
   font-family:system-ui;
   color:var(--dark);
 
-  /* fons a taulell (escacs) */
   background:
     linear-gradient(45deg,
       rgba(29,92,99,.35) 25%,
@@ -43,17 +42,16 @@ body{
 
 .title{
   margin:0;
-  font-size:75px;      /* ajusta aquí si vols */
+  font-size:75px;
   font-weight:900;
   letter-spacing:4px;
   color:var(--green);
   text-align:center;
 }
 
-/* Cartell central (slider amb 1 sola imatge) */
 .billboard{
-  width:min(380px, 86vw);   /* una mica més petit que 420 */
-  height:240px;            /* lleugerament més baix per proporció */
+  width:min(380px, 86vw);
+  height:240px;
   margin:0 auto 20px auto;
   border-radius:20px;
   border:4px solid rgba(0,0,0,.2);
@@ -65,29 +63,19 @@ body{
   justify-content:center;
 }
 
-
 #billboardImg{
   width:100%;
   height:100%;
   object-fit:contain;
   display:block;
-
   transform:translateX(0);
   transition:transform .55s ease, opacity .55s ease;
   opacity:1;
 }
 
-#billboardImg.out{
-  transform:translateX(-120%);
-  opacity:0;
-}
+#billboardImg.out{ transform:translateX(-120%); opacity:0; }
+#billboardImg.in{  transform:translateX(120%);  opacity:0; }
 
-#billboardImg.in{
-  transform:translateX(120%);
-  opacity:0;
-}
-
-/* Quadres placeholders */
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -109,17 +97,34 @@ body{
   color:rgba(0,0,0,.5);
 }
 
-@media (max-width: 980px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .title{font-size:60px}
-  .billboard{height:300px}
+.buy{
+  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
 }
 
-@media (max-width: 520px){
-  .grid{grid-template-columns:1fr}
-  .title{font-size:48px}
-  .billboard{height:260px}
+.buy:hover{
+  transform:translateY(-2px);
+  transition:transform .15s ease;
 }
+
+.location{
+  max-width:600px;
+  margin:40px auto;
+  padding:20px;
+  background:rgba(255,255,255,.7);
+  border-radius:20px;
+  text-align:center;
+}
+
+.location img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+
+.location p{ margin-top:10px; font-weight:700; }
+
 .reviews{
   max-width:600px;
   margin:40px auto;
@@ -128,10 +133,7 @@ body{
   border-radius:20px;
 }
 
-.reviews h2{
-  text-align:center;
-  margin-bottom:16px;
-}
+.reviews h2{ text-align:center; margin-bottom:16px; }
 
 .review-form{
   display:flex;
@@ -154,30 +156,13 @@ body{
   cursor:pointer;
 }
 
-.stars{
-  display:flex;
-  gap:6px;
-  font-size:28px;
-  cursor:pointer;
-}
+.stars{ display:flex; gap:6px; font-size:28px; cursor:pointer; }
+.stars span{ color:#ccc; }
+.stars span.active{ color:#1D5C63; }
 
-.stars span{
-  color:#ccc;
-}
+.review{ margin-top:14px; padding:10px; border-bottom:1px solid #ccc; }
+.review strong{ display:block; }
 
-.stars span.active{
-  color:#1D5C63;
-}
-
-.review{
-  margin-top:14px;
-  padding:10px;
-  border-bottom:1px solid #ccc;
-}
-
-.review strong{
-  display:block;
-}
 .order-btn{
   position:fixed;
   top:16px;
@@ -193,26 +178,16 @@ body{
   z-index:1000;
 }
 
-.order-btn:hover{
-  transform:translateY(-2px);
-}
-.location{
-  max-width:600px;
-  margin:40px auto;
-  padding:20px;
-  background:rgba(255,255,255,.7);
-  border-radius:20px;
-  text-align:center;
+.order-btn:hover{ transform:translateY(-2px); }
+
+@media (max-width: 980px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .title{font-size:60px}
+  .billboard{height:300px}
 }
 
-.location img{
-  width:100%;
-  border-radius:16px;
-  box-shadow:0 10px 24px rgba(0,0,0,.25);
+@media (max-width: 520px){
+  .grid{grid-template-columns:1fr}
+  .title{font-size:48px}
+  .billboard{height:260px}
 }
-
-.location p{
-  margin-top:10px;
-  font-weight:700;
-}
-
