@@ -52,7 +52,7 @@ body{
 
 /* Cartell central (slider amb 1 sola imatge) */
 .billboard{
-  width:min(420px, 92vw);
+  width:min(420px, 88vw);
   height:260px;
   margin:0 auto 24px auto;
   border-radius:22px;
