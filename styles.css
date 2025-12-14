@@ -13,9 +13,22 @@ body{
 
   /* fons a quadres */
 background:
-  linear-gradient(90deg, rgba(29,92,99,.35) 1px, transparent 1px) 0 0/32px 32px,
-  linear-gradient(rgba(29,92,99,.35) 1px, transparent 1px) 0 0/32px 32px,
+  linear-gradient(45deg,
+    rgba(29,92,99,.35) 25%,
+    transparent 25%,
+    transparent 75%,
+    rgba(29,92,99,.35) 75%,
+    rgba(29,92,99,.35)
+  ) 0 0/32px 32px,
+  linear-gradient(45deg,
+    rgba(29,92,99,.35) 25%,
+    transparent 25%,
+    transparent 75%,
+    rgba(29,92,99,.35) 75%,
+    rgba(29,92,99,.35)
+  ) 16px 16px/32px 32px,
   var(--cream);
+
 
 }
 
