@@ -196,3 +196,23 @@ body{
 .order-btn:hover{
   transform:translateY(-2px);
 }
+.location{
+  max-width:600px;
+  margin:40px auto;
+  padding:20px;
+  background:rgba(255,255,255,.7);
+  border-radius:20px;
+  text-align:center;
+}
+
+.location img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+
+.location p{
+  margin-top:10px;
+  font-weight:700;
+}
+
