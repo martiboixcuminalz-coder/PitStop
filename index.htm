@@ -14,24 +14,22 @@
     <header class="top">
       <h1 class="title">PITSTOP</h1>
 
-      <div class="billboard">
+      <!-- LOGO + ESQUIADOR -->
+      <div class="billboard hero-logo">
         <img id="billboardImg" src="logo.jpg" alt="PitStop">
+
+        <div class="ski-wrap">
+          <img src="eskiador.jpg" alt="PITSTOP ski" class="ski-anim">
+        </div>
       </div>
     </header>
 
     <section class="grid">
-      <a class="card placeholder buy" href="https://wa.me/376000000?text=Hola%20PitStop%2C%20vull%201%20Burger%201%2E" target="_blank" rel="noopener">
+      <a class="card placeholder buy"
+         href="https://wa.me/376000000?text=Hola%20PitStop%2C%20vull%201%20Burger%201%2E"
+         target="_blank" rel="noopener">
         Burger 1
       </a>
-
-      <section class="hero">
-  <img src="eskiador.jpg" alt="PITSTOP Ski" class="ski-anim">
-
-  <div class="hero-content">
-    <!-- el que ja tenies -->
-  </div>
-</section>
-
 
       <div class="card placeholder">Burger 2</div>
 
@@ -49,10 +47,8 @@
 
       <div class="map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.758367980422!2d1.635220140494224!3d42.58123352121971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12af63008f0b2885%3A0xf65c1738ff2b8230!2sHotel%20Segle%20XX%20Andorra!5e1!3m2!1sca!2ses!4v1765742271451!5m2!1sca!2ses"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.758367980422!2d1.635220140494224!3d42.58123352121971!"
+          loading="lazy"></iframe>
       </div>
 
       <p>Toca el mapa per obrir Google Maps</p>
@@ -62,29 +58,12 @@
       <h2>Ressenyes</h2>
 
       <form id="reviewForm" class="review-form">
-        <input type="text" id="name" placeholder="El teu nom" required>
-
-        <div class="stars" id="stars">
-          <span data-value="1">★</span>
-          <span data-value="2">★</span>
-          <span data-value="3">★</span>
-          <span data-value="4">★</span>
-          <span data-value="5">★</span>
-        </div>
-
-        <input type="hidden" id="rating" value="0">
+        <input type="text" placeholder="El teu nom" required>
         <button type="submit">Enviar ressenya</button>
       </form>
 
       <div id="reviewsList"></div>
     </section>
-
-    <div class="hero-logo">
-  <img src="logo-pitstop.png" alt="PITSTOP">
-
-  <img src="eskiador.jpg" alt="PITSTOP ski" class="ski-anim">
-</div>
-
   </main>
 
   <script src="slider.js"></script>
