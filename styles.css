@@ -51,7 +51,11 @@ body.comanda{
     var(--cream);
 }
 
-.wrap{max-width:1100px;margin:0 auto;padding:28px 16px}
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px 16px;
+}
 
 .top{
   display:flex;
@@ -69,6 +73,12 @@ body.comanda{
   letter-spacing:4px;
   color:var(--green);
   text-align:center;
+}
+
+/* --- LOGO PRINCIPAL --- */
+.hero-logo{
+  position:relative;
+  display:inline-block;
 }
 
 .billboard{
@@ -98,6 +108,24 @@ body.comanda{
 #billboardImg.out{ transform:translateX(-120%); opacity:0; }
 #billboardImg.in{  transform:translateX(120%);  opacity:0; }
 
+/* --- ESQUIADOR ANIMAT --- */
+.ski-anim{
+  position:absolute;
+  left:-200px;   /* extrem esquerre */
+  top:-60px;     /* extrem superior */
+  width:90px;
+  animation:pulseZoom 3s ease-in-out infinite;
+  transform-origin:center;
+  pointer-events:none;
+}
+
+@keyframes pulseZoom{
+  0%{ transform:scale(1); opacity:.9; }
+  50%{ transform:scale(1.25); opacity:1; }
+  100%{ transform:scale(1); opacity:.9; }
+}
+
+/* --- GRID --- */
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -130,6 +158,7 @@ body.comanda{
   transition:transform .15s ease;
 }
 
+/* --- UBICACIÓ --- */
 .location{
   max-width:600px;
   margin:40px auto;
@@ -141,6 +170,7 @@ body.comanda{
 
 .location p{ margin-top:10px; font-weight:700; }
 
+/* --- REVIEWS --- */
 .reviews{
   max-width:600px;
   margin:40px auto;
@@ -166,7 +196,7 @@ body.comanda{
 }
 
 .review-form button{
-  background:#1D5C63;
+  background:var(--green);
   color:white;
   font-weight:700;
   cursor:pointer;
@@ -174,17 +204,23 @@ body.comanda{
 
 .stars{ display:flex; gap:6px; font-size:28px; cursor:pointer; }
 .stars span{ color:#ccc; }
-.stars span.active{ color:#1D5C63; }
+.stars span.active{ color:var(--green); }
 
-.review{ margin-top:14px; padding:10px; border-bottom:1px solid #ccc; }
+.review{
+  margin-top:14px;
+  padding:10px;
+  border-bottom:1px solid #ccc;
+}
+
 .review strong{ display:block; }
 
+/* --- BOTÓ DEMANA --- */
 .order-btn{
   position:fixed;
   top:16px;
   right:16px;
   padding:12px 18px;
-  background:#1D5C63;
+  background:var(--green);
   color:#000;
   font-weight:900;
   font-size:18px;
@@ -196,18 +232,7 @@ body.comanda{
 
 .order-btn:hover{ transform:translateY(-2px); }
 
-@media (max-width: 980px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .title{font-size:60px}
-  .billboard{height:300px}
-}
-
-@media (max-width: 520px){
-  .grid{grid-template-columns:1fr}
-  .title{font-size:48px}
-  .billboard{height:260px}
-}
-
+/* --- MAPA --- */
 .map{
   position:relative;
   width:100%;
@@ -219,17 +244,14 @@ body.comanda{
 
 .map iframe{
   position:absolute;
-  top:0;
-  left:0;
+  inset:0;
   width:100%;
   height:100%;
   border:0;
 }
 
-.menu-card{
-  overflow:hidden;
-  padding:12px;
-}
+/* --- MENU --- */
+.menu-card{ overflow:hidden; padding:12px; }
 
 .menu-img{
   width:100%;
@@ -237,24 +259,17 @@ body.comanda{
   object-fit:contain;
   display:block;
 }
-.hero{
-  display:flex;
-  align-items:center;
-  gap:24px;
+
+/* --- RESPONSIVE --- */
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .title{font-size:60px}
+  .billboard{height:300px}
 }
 
-.ski-anim{
-  width:90px;
-  animation: pulseZoom 3s ease-in-out infinite;
-  transform-origin:center;
-}
-
-@keyframes pulseZoom{
-  0%{ transform: scale(1); opacity:0.9; }
-  50%{ transform: scale(1.25); opacity:1; }
-  100%{ transform: scale(1); opacity:0.9; }
-}
-.hero-logo{
-  position:relative;
-  display:inline-block;
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .title{font-size:48px}
+  .billboard{height:260px}
+  .ski-anim{display:none;}
 }
