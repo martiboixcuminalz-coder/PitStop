@@ -2,7 +2,7 @@
   --cream:#f3efe6;
   --green:#1D5C63;
   --dark:#111318;
-  --red:#d32f2f; /* vermell burger */
+  --red:#d32f2f;
 }
 
 *{box-sizing:border-box}
@@ -12,7 +12,7 @@ body{
   font-family:system-ui;
   color:var(--dark);
 
-  /* fons matrix verd (pàgina principal) */
+  /* fons verd (HOME) */
   background:
     linear-gradient(45deg,
       rgba(29,92,99,.35) 25%,
@@ -31,8 +31,7 @@ body{
     var(--cream);
 }
 
-/* ✅ fons matrix vermell NOMÉS a la pàgina Demana ja!
-   IMPORTANT: a comanda.html posa <body class="comanda"> */
+/* fons vermell NOMÉS a comanda.html */
 body.comanda{
   background:
     linear-gradient(45deg,
@@ -227,7 +226,6 @@ body.comanda{
   border:0;
 }
 
-/* Menús dins caselles (petit i controlat) */
 .menu-card{
   overflow:hidden;
   padding:12px;
