@@ -2,6 +2,7 @@
   --cream:#f3efe6;
   --green:#1D5C63;
   --dark:#111318;
+  --red:#d32f2f; /* vermell burger */
 }
 
 *{box-sizing:border-box}
@@ -11,6 +12,7 @@ body{
   font-family:system-ui;
   color:var(--dark);
 
+  /* fons matrix verd (pàgina principal) */
   background:
     linear-gradient(45deg,
       rgba(29,92,99,.35) 25%,
@@ -25,6 +27,27 @@ body{
       transparent 75%,
       rgba(29,92,99,.35) 75%,
       rgba(29,92,99,.35)
+    ) 16px 16px/32px 32px,
+    var(--cream);
+}
+
+/* ✅ fons matrix vermell NOMÉS a la pàgina Demana ja!
+   IMPORTANT: a comanda.html posa <body class="comanda"> */
+body.comanda{
+  background:
+    linear-gradient(45deg,
+      rgba(211,47,47,.40) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(211,47,47,.40) 75%,
+      rgba(211,47,47,.40)
+    ) 0 0/32px 32px,
+    linear-gradient(45deg,
+      rgba(211,47,47,.40) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(211,47,47,.40) 75%,
+      rgba(211,47,47,.40)
     ) 16px 16px/32px 32px,
     var(--cream);
 }
@@ -117,12 +140,6 @@ body{
   text-align:center;
 }
 
-.location img{
-  width:100%;
-  border-radius:16px;
-  box-shadow:0 10px 24px rgba(0,0,0,.25);
-}
-
 .location p{ margin-top:10px; font-weight:700; }
 
 .reviews{
@@ -209,23 +226,8 @@ body{
   height:100%;
   border:0;
 }
-.menu-card{
-  padding:10px;
-  flex-direction:column;
-  gap:8px;
-}
 
-.menu-card img{
-  width:100%;
-  height:160px;
-  object-fit:contain;
-  border-radius:12px;
-}
-
-.menu-card span{
-  font-weight:800;
-  color:#1D5C63;
-}
+/* Menús dins caselles (petit i controlat) */
 .menu-card{
   overflow:hidden;
   padding:12px;
@@ -237,11 +239,3 @@ body{
   object-fit:contain;
   display:block;
 }
-/* === QUADRATS PÀGINA DEMANA JA === */
-.comanda .card{
-  background:#c62828;   /* vermell intens */
-  color:white;
-  border:3px solid #8e0000;
-}
-
-
