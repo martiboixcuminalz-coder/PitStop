@@ -2,7 +2,6 @@
   --cream:#f3efe6;
   --green:#1D5C63;
   --dark:#111318;
-  --red:#d32f2f;
 }
 
 *{box-sizing:border-box}
@@ -11,8 +10,6 @@ body{
   margin:0;
   font-family:system-ui;
   color:var(--dark);
-
-  /* fons verd (HOME) */
   background:
     linear-gradient(45deg,
       rgba(29,92,99,.35) 25%,
@@ -21,134 +18,70 @@ body{
       rgba(29,92,99,.35) 75%,
       rgba(29,92,99,.35)
     ) 0 0/32px 32px,
-    linear-gradient(45deg,
-      rgba(29,92,99,.35) 25%,
-      transparent 25%,
-      transparent 75%,
-      rgba(29,92,99,.35) 75%,
-      rgba(29,92,99,.35)
-    ) 16px 16px/32px 32px,
     var(--cream);
 }
 
-/* fons vermell NOMÉS a comanda.html */
-body.comanda{
-  background:
-    linear-gradient(45deg,
-      rgba(211,47,47,.40) 25%,
-      transparent 25%,
-      transparent 75%,
-      rgba(211,47,47,.40) 75%,
-      rgba(211,47,47,.40)
-    ) 0 0/32px 32px,
-    linear-gradient(45deg,
-      rgba(211,47,47,.40) 25%,
-      transparent 25%,
-      transparent 75%,
-      rgba(211,47,47,.40) 75%,
-      rgba(211,47,47,.40)
-    ) 16px 16px/32px 32px,
-    var(--cream);
-}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px}
 
-.wrap{
-  max-width:1100px;
-  margin:0 auto;
-  padding:28px 16px;
-}
-
-.top{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:18px;
-}
+.top{text-align:center}
 
 .title{
-  margin:0;
   font-size:75px;
   font-weight:900;
   letter-spacing:4px;
   color:var(--green);
-  text-align:center;
 }
 
-/* --- LOGO PRINCIPAL --- */
+/* LOGO */
 .hero-logo{
   position:relative;
-  display:inline-block;
 }
 
 .billboard{
-  width:min(380px, 86vw);
+  width:min(380px,86vw);
   height:240px;
-  margin:0 auto 20px auto;
+  margin:0 auto 20px;
   border-radius:20px;
-  border:4px solid rgba(0,0,0,.2);
   background:white;
-  overflow:hidden;
-  box-shadow:0 14px 30px rgba(0,0,0,.25);
   display:flex;
   align-items:center;
   justify-content:center;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
 }
 
 #billboardImg{
   width:100%;
   height:100%;
   object-fit:contain;
-  display:block;
-  transform:translateX(0);
-  transition:transform .55s ease, opacity .55s ease;
-  opacity:1;
 }
 
-#billboardImg.out{ transform:translateX(-120%); opacity:0; }
-#billboardImg.in{  transform:translateX(120%);  opacity:0; }
-
-/* --- ESQUIADOR: diagonal + zoom suau --- */
-.ski-anim{
+/* ESQUIADOR */
+.ski-wrap{
   position:absolute;
-  left:-200px;      /* punt d'inici (fora a l'esquerra) */
-  top:-60px;        /* punt d'inici (amunt) */
-  width:90px;
-  transform-origin:center;
+  left:-140px;
+  top:-30px;
+  animation: skiDiagonal 4s linear infinite;
   pointer-events:none;
-
-  /* 2 animacions alhora: baixar diagonal + respirar (zoom) */
-  animation:
-    skiDiagonal 4.2s linear infinite,
-    pulseZoom   3s ease-in-out infinite;
 }
 
-/* Baixa en diagonal i torna a començar (loop) */
+.ski-anim{
+  width:90px;
+  animation: pulseZoom 3s ease-in-out infinite;
+}
+
 @keyframes skiDiagonal{
-  0%{
-    transform: translate(0,0) rotate(-10deg);
-    opacity:0;
-  }
-  10%{
-    opacity:1;
-  }
-  90%{
-    opacity:1;
-  }
-  100%{
-    transform: translate(240px,180px) rotate(10deg);
-    opacity:0;
-  }
+  0%   { transform:translate(0,0) rotate(-15deg); opacity:0; }
+  10%  { opacity:1; }
+  100% { transform:translate(220px,160px) rotate(10deg); opacity:0; }
 }
 
-/* Zoom suau (el que ja t'agradava) */
 @keyframes pulseZoom{
-  0%{ filter:none; }
-  50%{ filter:none; }
-  100%{ filter:none; }
+  0%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+  100%{transform:scale(1)}
 }
 
-/* --- GRID --- */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -156,143 +89,31 @@ body.comanda{
 }
 
 .card{
-  border-radius:18px;
   height:240px;
+  border-radius:18px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
-}
-
-.placeholder{
-  border:3px dashed rgba(0,0,0,.25);
   background:rgba(255,255,255,.6);
-  color:rgba(0,0,0,.5);
 }
 
-.buy{
-  cursor:pointer;
-  text-decoration:none;
-  color:inherit;
-}
-
-.buy:hover{
-  transform:translateY(-2px);
-  transition:transform .15s ease;
-}
-
-/* --- UBICACIÓ --- */
-.location{
-  max-width:600px;
-  margin:40px auto;
-  padding:20px;
-  background:rgba(255,255,255,.7);
-  border-radius:20px;
-  text-align:center;
-}
-
-.location p{ margin-top:10px; font-weight:700; }
-
-/* --- REVIEWS --- */
-.reviews{
-  max-width:600px;
-  margin:40px auto;
-  padding:20px;
-  background:rgba(255,255,255,.7);
-  border-radius:20px;
-}
-
-.reviews h2{ text-align:center; margin-bottom:16px; }
-
-.review-form{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.review-form input,
-.review-form button{
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:16px;
-}
-
-.review-form button{
-  background:var(--green);
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.stars{ display:flex; gap:6px; font-size:28px; cursor:pointer; }
-.stars span{ color:#ccc; }
-.stars span.active{ color:var(--green); }
-
-.review{
-  margin-top:14px;
-  padding:10px;
-  border-bottom:1px solid #ccc;
-}
-
-.review strong{ display:block; }
-
-/* --- BOTÓ DEMANA --- */
+/* BOTÓ */
 .order-btn{
   position:fixed;
   top:16px;
   right:16px;
   padding:12px 18px;
   background:var(--green);
-  color:#000;
   font-weight:900;
-  font-size:18px;
   border-radius:14px;
   text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-  z-index:1000;
+  color:black;
 }
 
-.order-btn:hover{ transform:translateY(-2px); }
-
-/* --- MAPA --- */
-.map{
-  position:relative;
-  width:100%;
-  padding-top:56%;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 10px 24px rgba(0,0,0,.25);
-}
-
-.map iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* --- MENU --- */
-.menu-card{ overflow:hidden; padding:12px; }
-
-.menu-img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width:980px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .title{font-size:60px}
-  .billboard{height:300px}
-}
-
-@media (max-width:520px){
-  .grid{grid-template-columns:1fr}
+/* RESPONSIVE */
+@media(max-width:520px){
   .title{font-size:48px}
-  .billboard{height:260px}
-  .ski-anim{display:none;}
+  .grid{grid-template-columns:1fr}
+  .ski-wrap{display:none}
 }
