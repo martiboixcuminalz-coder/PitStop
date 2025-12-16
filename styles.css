@@ -115,3 +115,35 @@ body{
   border:0;
 }
 
+/* ESQUIADOR QUE CREUA LA PANTALLA */
+.ski-cross{
+  position:fixed;
+  width:70px;                 /* petit, com volies */
+  top:-80px;
+  left:-80px;
+  z-index:999;
+  pointer-events:none;
+  animation: skiCross 6s linear infinite;
+}
+
+/* moviment diagonal */
+@keyframes skiCross{
+  0%{
+    transform: translate(0,0) rotate(-15deg);
+    opacity:0;
+  }
+  10%{
+    opacity:1;
+  }
+  100%{
+    transform: translate(120vw,120vh) rotate(15deg);
+    opacity:0;
+  }
+}
+
+/* no en mòbil */
+@media(max-width:768px){
+  .ski-cross{ display:none; }
+}
+
+
