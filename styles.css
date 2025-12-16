@@ -237,4 +237,11 @@ body{
   object-fit:contain;
   display:block;
 }
+/* === QUADRATS PÀGINA DEMANA JA === */
+.comanda .card{
+  background:#c62828;   /* vermell intens */
+  color:white;
+  border:3px solid #8e0000;
+}
+
 
