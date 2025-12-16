@@ -2,6 +2,7 @@
   --cream:#f3efe6;
   --green:#1D5C63;
   --dark:#111318;
+  --red:#d32f2f;
 }
 
 *{box-sizing:border-box}
@@ -18,29 +19,36 @@ body{
       rgba(29,92,99,.35) 75%,
       rgba(29,92,99,.35)
     ) 0 0/32px 32px,
+    linear-gradient(45deg,
+      rgba(29,92,99,.35) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(29,92,99,.35) 75%,
+      rgba(29,92,99,.35)
+    ) 16px 16px/32px 32px,
     var(--cream);
 }
 
 .wrap{max-width:1100px;margin:0 auto;padding:28px 16px}
 
-.top{text-align:center}
+.top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
 
 .title{
+  margin:0;
   font-size:75px;
   font-weight:900;
   letter-spacing:4px;
   color:var(--green);
 }
 
-/* LOGO */
-.hero-logo{
-  position:relative;
-}
-
 .billboard{
   width:min(380px,86vw);
   height:240px;
-  margin:0 auto 20px;
   border-radius:20px;
   background:white;
   display:flex;
@@ -55,33 +63,6 @@ body{
   object-fit:contain;
 }
 
-/* ESQUIADOR */
-.ski-wrap{
-  position:absolute;
-  left:-140px;
-  top:-30px;
-  animation: skiDiagonal 4s linear infinite;
-  pointer-events:none;
-}
-
-.ski-anim{
-  width:90px;
-  animation: pulseZoom 3s ease-in-out infinite;
-}
-
-@keyframes skiDiagonal{
-  0%   { transform:translate(0,0) rotate(-15deg); opacity:0; }
-  10%  { opacity:1; }
-  100% { transform:translate(220px,160px) rotate(10deg); opacity:0; }
-}
-
-@keyframes pulseZoom{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.25)}
-  100%{transform:scale(1)}
-}
-
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -98,7 +79,12 @@ body{
   background:rgba(255,255,255,.6);
 }
 
-/* BOTÓ */
+.menu-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
 .order-btn{
   position:fixed;
   top:16px;
@@ -111,9 +97,7 @@ body{
   color:black;
 }
 
-/* RESPONSIVE */
 @media(max-width:520px){
-  .title{font-size:48px}
   .grid{grid-template-columns:1fr}
-  .ski-wrap{display:none}
+  .title{font-size:48px}
 }
