@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const intervalMs = 5000;
     const t = 550; // 0.55s del CSS
 
-    img.classList.remove("out","in");
+    img.classList.remove("out", "in");
     img.src = frames[i];
 
     img.addEventListener("error", () => {
@@ -36,20 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ====== RESSENYES (localStorage) ======
+  const STORAGE_KEY = "pitstop_reviews";
+
   const form = document.getElementById("reviewForm");
   const reviewsList = document.getElementById("reviewsList");
   const stars = document.querySelectorAll(".stars span");
   const ratingInput = document.getElementById("rating");
 
   if (form && reviewsList && ratingInput && stars.length) {
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    let reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
     const renderReviews = () => {
       reviewsList.innerHTML = "";
-      reviews.forEach(r => {
+      // últimes primer
+      [...reviews].slice().reverse().forEach(r => {
         const div = document.createElement("div");
         div.className = "review";
-        const rating = Number(r.rating) || 0;
+        const rating = Math.max(1, Math.min(5, Number(r.rating) || 0));
         div.innerHTML = `
           <strong>${r.name}</strong>
           ${"★".repeat(rating)}${"☆".repeat(5 - rating)}
@@ -68,14 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", e => {
       e.preventDefault();
-      const name = document.getElementById("name").value.trim();
+
+      const nameEl = document.getElementById("name");
+      const name = (nameEl?.value || "").trim();
       const rating = ratingInput.value;
 
       if (!name) return alert("Escriu el teu nom");
       if (!rating || rating === "0") return alert("Selecciona estrelles");
 
-      reviews.push({ name, rating });
-      localStorage.setItem("reviews", JSON.stringify(reviews));
+      reviews.push({ name, rating, ts: Date.now() });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
 
       form.reset();
       ratingInput.value = 0;
