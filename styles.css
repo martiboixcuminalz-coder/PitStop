@@ -146,4 +146,23 @@ body{
   .ski-cross{ display:none; }
 }
 
+/* ESQUIADOR QUE CREUA LA PANTALLA (blindat) */
+.ski-cross{
+  position: fixed !important;
+  width: 70px !important;
+  height: auto !important;
+  left: -90px !important;     /* comença fora pantalla */
+  top: 15vh !important;       /* alçada d’inici */
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  display: block !important;
+  animation: skiCross 6s linear infinite !important;
+}
+
+@keyframes skiCross{
+  0%   { transform: translate(0,0) rotate(-15deg); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translate(140vw, 110vh) rotate(15deg); opacity: 0; }
+}
+
 
